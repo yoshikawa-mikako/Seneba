@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :done %><br>
+    <%= f.label :完了 %><br>
     <%= f.check_box :done %>
   </div>
   <div class="field">
-    <%= f.label :due_date %><br>
+    <%= f.label :返却予定日 %><br>
     <%= f.date_select :due_date %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :本の名前 %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.all, :categoryname, :categoryname %>
+    <%= f.label :カテゴリー %><br>
+    <%= f.collection_select :category_id, Category.all, :categoryname, :categoryname, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.all, :username, :username %>
+    <%= f.label :ユーザー名 %><br>
+    <%= f.collection_select :user_id, User.all, :username, :username, :include_blank => true %>
   </div>
   <div class="actions">
     <%= f.submit %>
