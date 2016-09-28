@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+﻿class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -50,6 +50,17 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
+
+  def search
+    @search_value = params['search']['username']
+    @users = User.where("username like '%#{@search_value}%'")
+    render :index
+  end
+
+
+
 
   # DELETE /users/1
   # DELETE /users/1.json

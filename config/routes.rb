@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   resources :categories
   resources :users
+  resources :tasks
   resources :tasks do
     post 'search' , on: :collection
   end
+
+resources :users do
+    post 'search' , on: :collection
+  end
+
+ resources :categories do
+    post 'search' , on: :collection
+  end
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
