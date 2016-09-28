@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+﻿class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -50,6 +50,15 @@ class CategoriesController < ApplicationController
       end
     end
   end
+
+ def search
+    @search_value = params['search']['categoryname']
+    @categories = Category.where("categoryname like '%#{@search_value}%'")
+    render :index
+  end
+
+
+
 
   # DELETE /categories/1
   # DELETE /categories/1.json
